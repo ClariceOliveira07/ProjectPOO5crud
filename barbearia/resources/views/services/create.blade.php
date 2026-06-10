@@ -1,79 +1,90 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
-<div class="max-w-2xl mx-auto p-6 my-8">
-    <div class="mb-6">
-        <a href="{{ route('services.index') }}" class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors duration-150">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-            </svg>
-            Voltar
-        </a>
+<div class="flex min-h-screen bg-[#faf9f6]"> 
+    <div class="w-60 bg-white border-r border-gray-200">
+        <div class="p-4 border-b border-gray-100 font-bold text-gray-800">
+            👑 Barbearia King
+        </div>
+        <div class="p-4 flex flex-col gap-2">
+            <a href="{{ route('clients.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Clientes</a>
+            <a href="{{ route('services.index') }}" class="p-2 text-gray-600 hover:bg-gray-100 font-semibold bg-gray-50 text-gray-900">Serviços</a>
+            <a href="#" class="p-2 text-gray-600 hover:bg-gray-100">Agenda</a>
+        </div>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-        <div class="bg-slate-900 px-6 py-5">
-            <h1 class="text-xl font-bold text-slate-100 tracking-tight">Cadastrar Novo Serviço</h1>
+    <div class="flex-1 p-6">
+        
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h1 class="text-xl font-bold text-gray-800">Serviços</h1>
+                <p class="text-sm text-gray-500">Cadastrar um novo serviço no sistema.</p>
+            </div>
+            <a href="{{ route('services.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold px-4 py-2 rounded-md shadow-sm text-sm transition-colors">
+                Voltar
+            </a>
         </div>
 
-        <form action="{{ route('services.store') }}" method="POST" class="p-6 space-y-5">
-            @csrf
-
-            <div>
-                <label for="nome" class="block text-sm font-semibold text-slate-700 mb-2">Nome do Serviço:</label>
-                <input type="text" name="nome" id="nome" value="{{ old('nome') }}" 
-                       class="w-full text-sm px-4 py-2.5 rounded-lg border @error('nome') border-rose-500 ring-2 ring-rose-500/10 @else border-slate-200 @enderror text-slate-800 bg-slate-50/50 focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10 focus:outline-none transition-all duration-150">
-                @error('nome')
-                    <p class="text-rose-600 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div>
-                <label for="descrição" class="block text-sm font-semibold text-slate-700 mb-2">Descrição:</label>
-                <textarea name="descrição" id="descrição" rows="3" 
-                          class="w-full text-sm px-4 py-2.5 rounded-lg border @error('descrição') border-rose-500 ring-2 ring-rose-500/10 @else border-slate-200 @enderror text-slate-800 bg-slate-50/50 focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10 focus:outline-none transition-all duration-150">{{ old('descrição') }}</textarea>
-                @error('descrição')
-                    <p class="text-rose-600 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label for="preco" class="block text-sm font-semibold text-slate-700 mb-2">Preço (R$):</label>
-                    <input type="number" step="0.01" name="preco" id="preco" value="{{ old('preco') }}" 
-                           class="w-full text-sm px-4 py-2.5 rounded-lg border @error('preco') border-rose-500 ring-2 ring-rose-500/10 @else border-slate-200 @enderror text-slate-800 bg-slate-50/50 focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10 focus:outline-none transition-all duration-150">
-                    @error('preco')
-                        <p class="text-rose-600 text-sm mt-1">{{ $message }}</p>
-                    @enderror
+        <div class="flex justify-center mt-8">
+            
+            <div class="w-full max-w-xl bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm">
+                <div class="bg-[#fecaca] p-4 border-b border-gray-200">
+                    <h2 class="font-bold text-red-900">Novo Serviço</h2>
                 </div>
 
-                <div>
-                    <label for="duracao_minutos" class="block text-sm font-semibold text-slate-700 mb-2">Duração (minutos):</label>
-                    <input type="number" name="duracao_minutos" id="duracao_minutos" value="{{ old('duracao_minutos', 30) }}" 
-                           class="w-full text-sm px-4 py-2.5 rounded-lg border @error('duracao_minutos') border-rose-500 ring-2 ring-rose-500/10 @else border-slate-200 @enderror text-slate-800 bg-slate-50/50 focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10 focus:outline-none transition-all duration-150">
-                    @error('duracao_minutos')
-                        <p class="text-rose-600 text-sm mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
+                <form action="{{ route('services.store') }}" method="POST" class="p-4 flex flex-col gap-4">
+                    @csrf
+
+                    <div>
+                        <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome do Serviço:</label>
+                        <input type="text" name="nome" id="nome" value="{{ old('nome') }}" 
+                               class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none @error('nome') border-red-500 @else border-gray-300 @enderror">
+                        @error('nome') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    <div>
+                        <label for="descrição" class="block text-sm font-medium text-gray-700 mb-1">Descrição:</label>
+                        <textarea name="descrição" id="descrição" rows="3" 
+                                  class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none @error('descrição') border-red-500 @else border-gray-300 @enderror">{{ old('descrição') }}</textarea>
+                        @error('descrição') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="preco" class="block text-sm font-medium text-gray-700 mb-1">Preço (R$):</label>
+                            <input type="number" step="0.01" name="preco" id="preco" value="{{ old('preco') }}" 
+                                   class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none @error('preco') border-red-500 @else border-gray-300 @enderror">
+                            @error('preco') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                        </div>
+
+                        <div>
+                            <label for="duracao_minutos" class="block text-sm font-medium text-gray-700 mb-1">Duração (minutos):</label>
+                            <input type="number" name="duracao_minutos" id="duracao_minutos" value="{{ old('duracao_minutos', 30) }}" 
+                                   class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none @error('duracao_minutos') border-red-500 @else border-gray-300 @enderror">
+                            @error('duracao_minutos') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="ativo" class="block text-sm font-medium text-gray-700 mb-1">Status do Serviço:</label>
+                        <select name="ativo" id="ativo" class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none border-gray-300">
+                            <option value="1" {{ old('ativo', '1') == '1' ? 'selected' : '' }}>Ativo</option>
+                            <option value="0" {{ old('ativo') == '0' ? 'selected' : '' }}>Inativo</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-end pt-2 border-t border-gray-100 mt-2">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md text-sm transition-colors">
+                            Salvar Serviço
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <div>
-                <label for="ativo" class="block text-sm font-semibold text-slate-700 mb-2">Status do Serviço:</label>
-                <select name="ativo" id="ativo" 
-                        class="w-full text-sm px-4 py-2.5 rounded-lg border @error('ativo') border-rose-500 ring-2 ring-rose-500/10 @else border-slate-200 @enderror text-slate-800 bg-slate-50/50 focus:bg-white focus:border-slate-900 focus:ring-4 focus:ring-slate-900/10 focus:outline-none transition-all duration-150">
-                    <option value="1" {{ old('ativo', '1') == '1' ? 'selected' : '' }}>Ativo</option>
-                    <option value="0" {{ old('ativo') == '0' ? 'selected' : '' }}>Inativo</option>
-                </select>
-                @error('ativo')
-                    <p class="text-rose-600 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
+        </div>
 
-            <div class="flex justify-between items-center pt-4 border-t border-slate-100">
-                <a href="{{ route('services.index') }}" class="text-slate-600 hover:underline">Voltar</a>
-                <button type="submit" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-5 py-2.5 rounded-lg transition-colors duration-150 shadow-sm text-sm">
-                    Salvar Serviço
-                </button>
-            </div>
-        </form>
     </div>
+</div>
+
+<div class="bg-white border-t border-gray-200 p-3 text-center text-xs text-gray-400">
+    &copy; 2026 - Barbearia King
 </div>
