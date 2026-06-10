@@ -30,7 +30,7 @@ class ServiceController extends Controller
     public function store(ServiceRequest $request)
     {
         Service::create($request->validated());
-        return redirect()->route('services.index')->with('seccess', 'Serviço cadastrado!');
+        return redirect()->route('services.index')->with('success', 'Serviço cadastrado!');
     }
 
     /**

@@ -47,7 +47,7 @@
                             <td class="p-3">
                                 <div class="text-gray-900 font-medium">{{ $service->nome }}</div>
                                 @if($service->descrição)
-                                    <div class="text-xs text-gray-400">{{ $service->descrição }}</div>
+                                    <div class="text-xs text-gray-400">{{ $service->descricao }}</div>
                                 @endif
                             </td>
                             <td class="p-3 text-gray-500">{{ $service->duracao_minutos }} min</td>
