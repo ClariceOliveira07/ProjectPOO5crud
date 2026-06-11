@@ -40,14 +40,6 @@
                                class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none @error('nome') border-red-500 @else border-gray-300 @enderror">
                         @error('nome') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
-
-                    <div>
-                        <label for="descricao" class="block text-sm font-medium text-gray-700 mb-1">Descrição:</label>
-                        <textarea name="descricao" id="descricao" rows="3" 
-                                  class="w-full text-sm p-2 border rounded-md bg-gray-50 focus:bg-white focus:outline-none @error('descricao') border-red-500 @else border-gray-300 @enderror">{{ old('descrição') }}</textarea>
-                        @error('descricao') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
-                    </div>
-
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label for="preco" class="block text-sm font-medium text-gray-700 mb-1">Preço (R$):</label>

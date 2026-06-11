@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->text('descricao')->nullable();
             $table->decimal('preco', 8, 2);
             $table->integer('duracao_minutos')->default(30);
             $table->boolean('ativo')->default(true);
