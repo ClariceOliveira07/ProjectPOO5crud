@@ -54,15 +54,12 @@
                             <td class="p-3 font-mono text-gray-900 font-medium">
                                 {{ $ap->data_agenda }}
                             </td>
-                            
                             <td class="p-3 text-gray-800">
                                 {{ $ap->client->name }}
                             </td>
-                            
                             <td class="p-3 text-gray-800">
                                 {{ $ap->service->name }}
                             </td>
-                            
                             <td class="p-3">
                                 @if($ap->status === 'Pendente')
                                     <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded font-medium">
@@ -105,5 +102,5 @@
     </div>
 </div>
 <div class="bg-white border-t border-gray-200 p-3 text-center text-xs text-gray-400">
-    &copy; 2026 - Barbearia King
+    &copy; Clarice Oliveira - 2026 - Projeto CRUD Programação Orientada a Objetos
 </div>

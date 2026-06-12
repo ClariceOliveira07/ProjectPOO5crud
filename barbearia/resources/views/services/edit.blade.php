@@ -67,5 +67,5 @@
     </div>
 </div>
 <div class="bg-white border-t border-gray-200 p-3 text-center text-xs text-gray-400">
-    &copy; 2026 - Barbearia King
+    &copy; Clarice Oliveira - 2026 - Projeto CRUD Programação Orientada a Objetos
 </div>

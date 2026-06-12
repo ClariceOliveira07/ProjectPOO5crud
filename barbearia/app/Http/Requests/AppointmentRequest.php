@@ -22,9 +22,9 @@ class AppointmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id'=>'required|exists:client,id',
-            'service_id'=>'required|exists:service,id',
-            'data_agenda'=>'required|date|after:today',
+            'client_id'=>'required|exists:clients,id',
+            'service_id'=>'required|exists:services,id',
+            'data_agenda'=>'required|date|after_or_equal:today',
             'hora_agenda'=>'required',
             'status'=>'required|in:Pendente,Concluído,Cancelado',
             'notes'=>'nullable|string',

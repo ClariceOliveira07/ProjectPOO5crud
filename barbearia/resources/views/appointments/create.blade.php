@@ -40,9 +40,7 @@
                         <select name="client_id" id="client_id" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             <option value="">Selecione um cliente...</option>
                             @foreach($clients as $client)
-                                <option value="{{ $client->id }}" {{ old('client_id') == $client->id ? 'selected' : '' }}>
-                                    {{ $client->name }}
-                                </option>
+                                <option value="{{ $client->id }}" {{ old('client_id') == $client->id ? 'selected' : '' }}>  {{ $client->nome }}  </option>
                             @endforeach
                         </select>
                         @error('client_id') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
@@ -53,9 +51,7 @@
                         <select name="service_id" id="service_id" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             <option value="">Selecione um serviço...</option>
                             @foreach($services as $service)
-                                <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>
-                                    {{ $service->name }}
-                                </option>
+                                <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>  {{ $service->nome }}  </option>
                             @endforeach
                         </select>
                         @error('service_id') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
@@ -75,8 +71,17 @@
                                    class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             @error('hora_agenda') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
+                    
+                        <div>
+                            <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status:</label>
+                            <select name="status" id="status" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
+                                <option value="Pendente" {{ old('status') == 'Pendente' ? 'selected' : '' }}>Pendente</option>
+                                <option value="Concluído" {{ old('status') == 'Concluído' ? 'selected' : '' }}>Concluído</option>
+                                <option value="Cancelado" {{ old('status') == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
+                            </select>
+                            @error('status') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
+                        </div>
                     </div>
-
                     <div>
                         <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Observações (Opcional):</label>
                         <textarea name="notes" id="notes" rows="3" placeholder="Ex: Avisou que pode atrasar 5 minutos..." 
@@ -97,5 +102,5 @@
 </div>
 
 <div class="bg-white border-t border-gray-200 p-3 text-center text-xs text-gray-400">
-    &copy; 2026 - Barbearia King
+    &copy; Clarice Oliveira - 2026 - Projeto CRUD Programação Orientada a Objetos
 </div>
