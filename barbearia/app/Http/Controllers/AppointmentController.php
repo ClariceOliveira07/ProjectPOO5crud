@@ -48,22 +48,26 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        //
+        $clients = Clients::orderBy('nome')->get();
+        $services = Service::active()->orderBy('nome')->get();
+        return view ('appointments.edit', compact ('appointment', 'clients', 'services'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AppointmentRequest $request, Appointment $appointment)
     {
-        //
+        $appointment->update($request->validated());
+        return redirect()->route('appointments.index')->with('success', 'Agendamento atualizado!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Appointment $appointment)
     {
-        //
+        $appointment->delete();
+        return redirect()->route('appointments.index')->with('success', 'Agendamento cancelado!');
     }
 }

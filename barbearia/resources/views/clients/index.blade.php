@@ -8,7 +8,7 @@
         <div class="p-4 flex flex-col gap-2">
             <a href="{{ route('clients.index') }}" class="p-2 text-gray-600 hover:bg-gray-100 font-semibold bg-gray-50 text-gray-900">Clientes</a>
             <a href="{{ route('services.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Serviços</a>
-            <a href="#" class="p-2 text-gray-600 hover:bg-gray-100">Agenda</a>
+            <a href="{{ route('appointments.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Agendamento</a>
         </div>
     </div>
 
