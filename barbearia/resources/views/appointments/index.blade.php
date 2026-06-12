@@ -83,7 +83,6 @@
                                 <a href="{{ route('appointments.edit', $ap) }}" class="text-blue-600 hover:underline mr-3">
                                     Editar
                                 </a>
-                                
                                 <form action="{{ route('appointments.destroy', $ap) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
@@ -101,13 +100,10 @@
                         </tr>
                     @endforelse
                 </tbody>
-                
             </table>
         </div>
-
     </div>
 </div>
-
 <div class="bg-white border-t border-gray-200 p-3 text-center text-xs text-gray-400">
     &copy; 2026 - Barbearia King
 </div>
