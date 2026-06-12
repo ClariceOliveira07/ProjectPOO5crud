@@ -21,7 +21,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        $clients = Client::orderBy('nome')->gent();
+        $clients = Client::orderBy('nome')->get();
         $services = Service::active()->orderBy('nome')->get();
         return view('appointments.create', compact('clients', 'services'));
     }
@@ -31,7 +31,7 @@ class AppointmentController extends Controller
      */
     public function store(AppointmentRequest $request)
     {
-        Appointment::create($request->validate());
+        Appointment::create($request->validated());
         return redirect()->route('appointments.index')->with('success', 'Agendamento criado!');
     }
 
@@ -48,7 +48,7 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        $clients = Clients::orderBy('nome')->get();
+        $clients = Client::orderBy('nome')->get();
         $services = Service::active()->orderBy('nome')->get();
         return view ('appointments.edit', compact ('appointment', 'clients', 'services'));
     }

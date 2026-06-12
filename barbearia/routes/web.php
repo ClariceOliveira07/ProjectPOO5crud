@@ -9,4 +9,4 @@ Route::get('/', function () {
 
 Route::resource('clients', ClientController::class);
 Route::resource('services', ServiceController::class);
-Route::resource('appointmentss', AppointmentController::class);
+Route::resource('appointments', AppointmentController::class);
