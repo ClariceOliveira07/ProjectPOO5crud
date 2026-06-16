@@ -2,9 +2,22 @@
 
 <div class="flex min-h-screen bg-[#faf9f6]"> 
     <div class="w-60 bg-white border-r border-gray-200">
-        <div class="p-4 border-b border-gray-100 font-bold text-gray-800">
-            👑 Barbearia King
-        </div>
+        <div class="p-4 border-b border-gray-100 flex flex-col items-center gap-2">
+    
+    <div class="relative w-12 h-12 flex items-center justify-center">
+        <svg class="w-12 h-12 text-amber-500 drop-shadow-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2 19h20v2H2v-2zm1-2h18L19 7l-4 4-3-6-3 6-4-4-3 10z"/>
+        </svg>
+        
+        <span class="absolute top-[18%] left-[47%] w-1.5 h-1.5 bg-red-600 rounded-full border border-amber-400 shadow-sm animate-pulse"></span>
+        <span class="absolute top-[32%] left-[17%] w-1 h-1 bg-red-600 rounded-full border border-amber-400 shadow-sm"></span>
+        <span class="absolute top-[32%] right-[17%] w-1 h-1 bg-red-600 rounded-full border border-amber-400 shadow-sm"></span>
+    </div>
+
+    <div class="font-bold text-gray-800 tracking-wide text-sm uppercase mt-1">
+        Barbearia King
+    </div>
+</div>
         <div class="p-4 flex flex-col gap-2">
             <a href="{{ route('clients.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Clientes</a>
             <a href="{{ route('services.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Serviços</a>
@@ -26,13 +39,13 @@
                 <div class="bg-[#e9d5ff] p-4 border-b border-gray-200">
                     <h2 class="font-bold text-purple-900">Editar Agendamento</h2>
                 </div>
-                <form action="{{ route('appointments.update', $appointments->id) }}" method="POST" class="p-4 flex flex-col gap-4">
+                <form action="{{ route('appointments.update', $appointment->id) }}" method="POST" class="p-4 flex flex-col gap-4">
                     @csrf
                     @method('PUT') <div>
                         <label for="client_id" class="block text-sm font-medium text-gray-700 mb-1">Cliente:</label>
                         <select name="client_id" id="client_id" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             @foreach($clients as $client)
-                                <option value="{{ $client->id }}" {{ old('client_id', $appointments->client_id) == $client->id ? 'selected' : '' }}>
+                                <option value="{{ $client->id }}" {{ old('client_id', $appointment->client_id) == $client->id ? 'selected' : '' }}>
                                     {{ $client->name }}
                                 </option>
                             @endforeach
@@ -43,7 +56,7 @@
                         <label for="service_id" class="block text-sm font-medium text-gray-700 mb-1">Serviço:</label>
                         <select name="service_id" id="service_id" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             @foreach($services as $service)
-                                <option value="{{ $service->id }}" {{ old('service_id', $ap->service_id) == $service->id ? 'selected' : '' }}>
+                                <option value="{{ $service->id }}" {{ old('service_id', $appointment->service_id) == $service->id ? 'selected' : '' }}>
                                     {{ $service->name }}
                                 </option>
                             @endforeach
@@ -53,13 +66,13 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label for="data_agenda" class="block text-sm font-medium text-gray-700 mb-1">Data:</label>
-                            <input type="date" name="data_agenda" id="data_agenda" value="{{ old('data_agenda', $ap->data_agenda) }}" 
+                            <input type="date" name="data_agenda" id="data_agenda" value="{{ old('data_agenda', $appointment->data_agenda) }}" 
                                    class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             @error('data_agenda') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
                         <div>
                             <label for="hora_agenda" class="block text-sm font-medium text-gray-700 mb-1">Horário:</label>
-                            <input type="time" name="hora_agenda" id="hora_agenda" value="{{ old('hora_agenda', date('H:i', strtotime($ap->hora_agenda))) }}" 
+                            <input type="time" name="hora_agenda" id="hora_agenda" value="{{ old('hora_agenda', date('H:i', strtotime($appointment->hora_agenda))) }}" 
                                    class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             @error('hora_agenda') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
@@ -67,16 +80,11 @@
                     <div>
                         <label for="status" class="block text-sm font-medium text-gray-700 mb-1">Status do Agendamento:</label>
                         <select name="status" id="status" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
-                            <option value="Pendente" {{ old('status', $ap->status) == 'Pendente' ? 'selected' : '' }}>Pendente</option>
-                            <option value="Concluído" {{ old('status', $ap->status) == 'Concluído' ? 'selected' : '' }}>Concluído</option>
-                            <option value="Cancelado" {{ old('status', $ap->status) == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
+                            <option value="Pendente" {{ old('status', $appointment->status) == 'Pendente' ? 'selected' : '' }}>Pendente</option>
+                            <option value="Concluído" {{ old('status', $appointment->status) == 'Concluído' ? 'selected' : '' }}>Concluído</option>
+                            <option value="Cancelado" {{ old('status', $appointment->status) == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
                         </select>
                         @error('status') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
-                    </div>
-                    <div>
-                        <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Observações:</label>
-                        <textarea name="notes" id="notes" rows="3" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">{{ old('notes', $ap->notes) }}</textarea>
-                        @error('notes') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
                     <div class="flex justify-end pt-2 border-t border-gray-100 mt-2">
                         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md text-sm transition-colors">
