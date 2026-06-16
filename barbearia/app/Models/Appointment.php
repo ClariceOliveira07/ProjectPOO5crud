@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     protected $fillable = ['client_id', 'service_id', 'data_agenda', 'hora_agenda', 'status', 'notes',];
-    protected $casts = ['data_agenda'=>'data'];
+    protected $casts = ['data_agenda'=>'date'];
     public function client(){
         return $this->belongsTo(Client::class);
     }

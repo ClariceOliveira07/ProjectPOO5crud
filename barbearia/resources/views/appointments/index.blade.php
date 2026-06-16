@@ -52,13 +52,13 @@
                                 {{ $ap->hora_agenda }}
                             </td>
                             <td class="p-3 font-mono text-gray-900 font-medium">
-                                {{ $ap->data_agenda }}
+                                {{ $ap->data_agenda->format('d/m/Y') }}
                             </td>
                             <td class="p-3 text-gray-800">
-                                {{ $ap->client->name }}
+                                {{ $ap->client->nome ?? 'Cliente não encontrado' }}
                             </td>
                             <td class="p-3 text-gray-800">
-                                {{ $ap->service->name }}
+                                {{ $ap->service->nome ?? 'Serviço não encontrado' }}
                             </td>
                             <td class="p-3">
                                 @if($ap->status === 'Pendente')

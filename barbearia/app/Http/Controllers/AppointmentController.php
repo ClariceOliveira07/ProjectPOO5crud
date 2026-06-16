@@ -12,7 +12,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::with(['client', 'service'])->whereDate('data_agenda', today())->orderBy('hora_agenda')->get();
+        $appointments = Appointment::with(['client', 'service'])->orderBy('data_agenda')->orderBy('hora_agenda')->get();
         return view('appointments.index', compact('appointments'));
     }
 

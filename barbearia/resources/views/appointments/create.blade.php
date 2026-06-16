@@ -82,13 +82,6 @@
                             @error('status') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
                         </div>
                     </div>
-                    <div>
-                        <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Observações (Opcional):</label>
-                        <textarea name="notes" id="notes" rows="3" placeholder="Ex: Avisou que pode atrasar 5 minutos..." 
-                                  class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">{{ old('notes') }}</textarea>
-                        @error('notes') <p class="text-red-600 text-xs mt-1">{{ $message }}</p> @enderror
-                    </div>
-
                     <div class="flex justify-end pt-2 border-t border-gray-100 mt-2">
                         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md text-sm transition-colors">
                             Salvar Agendamento
