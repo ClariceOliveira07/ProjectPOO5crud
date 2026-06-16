@@ -22,6 +22,17 @@
                 <a href="{{ route('services.index') }}" class="p-2 font-semibold bg-gray-50 text-gray-900 rounded-md">Serviços</a>
                 <a href="{{ route('appointments.index') }}" class="p-2 text-gray-600 hover:bg-gray-100 rounded-md">Agendamento</a>
             </div>
+            <div class="p-4 border-t border-gray-100 bg-gray-50/50">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-semibold text-red-600 hover:bg-red-50 rounded-md transition-all border border-transparent hover:border-red-100">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                            Sair do Sistema
+                        </button>
+                    </form>
+                </div>
         </div>
     </div>
 

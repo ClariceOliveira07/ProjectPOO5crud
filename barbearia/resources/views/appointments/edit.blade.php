@@ -23,6 +23,7 @@
             <a href="{{ route('services.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Serviços</a>
             <a href="{{ route('appointments.index') }}" class="p-2 text-gray-600 hover:bg-gray-100 font-semibold bg-gray-50 text-gray-900">Agendamento</a>
         </div>
+        
     </div>
     <div class="flex-1 p-6">
         <div class="flex justify-between items-center mb-6">
