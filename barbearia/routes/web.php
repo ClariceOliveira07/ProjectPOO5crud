@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\{ClientController, ServiceController, AppointmentController};
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('clients', ClientController::class);
+Route::resource('services', ServiceController::class);
+Route::resource('appointments', AppointmentController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -26,13 +26,13 @@
                 <div class="bg-[#e9d5ff] p-4 border-b border-gray-200">
                     <h2 class="font-bold text-purple-900">Editar Agendamento</h2>
                 </div>
-                <form action="{{ route('appointments.update', $ap->id) }}" method="POST" class="p-4 flex flex-col gap-4">
+                <form action="{{ route('appointments.update', $appointments->id) }}" method="POST" class="p-4 flex flex-col gap-4">
                     @csrf
                     @method('PUT') <div>
                         <label for="client_id" class="block text-sm font-medium text-gray-700 mb-1">Cliente:</label>
                         <select name="client_id" id="client_id" class="w-full text-sm p-2 border border-gray-300 rounded-md bg-gray-50 focus:bg-white focus:outline-none">
                             @foreach($clients as $client)
-                                <option value="{{ $client->id }}" {{ old('client_id', $ap->client_id) == $client->id ? 'selected' : '' }}>
+                                <option value="{{ $client->id }}" {{ old('client_id', $appointments->client_id) == $client->id ? 'selected' : '' }}>
                                     {{ $client->name }}
                                 </option>
                             @endforeach
