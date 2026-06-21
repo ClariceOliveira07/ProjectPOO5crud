@@ -13,9 +13,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-[#faf9f6] text-gray-800">
-        <div class="min-h-screen flex bg-[#faf9f6]">
+        <div class="min-h-screen flex flex-col bg-[#faf9f6]">
             
-            <aside class="w-60 bg-white border-r border-gray-200 flex flex-col justify-between fixed h-screen z-20">
+            <aside class="hidden w-60 bg-white border-r border-gray-200 flex flex-col justify-between fixed h-screen z-20">
                 <div>
                     <div class="p-4 border-b border-gray-100 flex flex-col items-center gap-2">
                         <div class="relative w-12 h-12 flex items-center justify-center">
@@ -59,13 +59,13 @@
                 </div>
             </aside>
 
-            <div class="flex-1 flex flex-col justify-between pl-60 min-h-screen">
+            <div class="flex-1 flex flex-col justify-between min-h-screen">
                 
                 <div class="w-full">
                     @include('layouts.navigation')
 
                     @isset($header)
-                        <header class="bg-white border-b border-gray-200 py-4 px-6">
+                        <header class="hidden bg-white border-b border-gray-200 py-4 px-6">
                             <div class="max-w-7xl mx-auto">
                                 {{ $header }}
                             </div>

@@ -9,13 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('clients', ClientController::class);
-Route::resource('services', ServiceController::class);
-Route::resource('appointments', AppointmentController::class);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::resource('clients', ClientController::class)->middleware('auth');
+Route::resource('services', ServiceController::class)->middleware('auth');
+Route::resource('appointments', AppointmentController::class)->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
