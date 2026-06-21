@@ -1,5 +1,6 @@
-<nav x-data="{ open: false }" class="bg-[#faf9f6] border-b border-gray-200">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <br>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-row items-center justify-between h-16 w-full"> 
             <div class="flex items-center"> 
                 <div class="shrink-0 flex items-center">
@@ -12,21 +13,13 @@
                 </div>
 
                 <div class="flex flex-row space-x-8 -my-px ms-10">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    <a href="{{ route('dashboard') }}" class="p-2 text-gray-600 hover:bg-gray-100">Dashboard</a>
 
-                    <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
-                        Clientes
-                    </x-nav-link>
+                    <a href="{{ route('clients.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Clientes</a>
 
-                    <x-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
-                        Serviços
-                    </x-nav-link>
+                    <a href="{{ route('services.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Serviços</a>
 
-                    <x-nav-link :href="route('appointments.index')" :active="request()->routeIs('appointments.*')">
-                        Agendamentos
-                    </x-nav-link>
+                    <a href="{{ route('appointments.index') }}" class="p-2 text-gray-600 hover:bg-gray-100">Agendamento</a>
                 </div>
             </div>
 
@@ -71,6 +64,7 @@
                 </button>
             </div>
         </div>
+        <br>
     </div>
 
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

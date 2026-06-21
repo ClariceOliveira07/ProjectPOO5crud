@@ -79,7 +79,7 @@
                     </div>
                 </main>
                 
-                <footer class="bg-white border-t border-gray-200 p-3 text-center text-xs text-gray-400 w-full col-span-2">
+                <footer class="w-full bg-white border-t border-gray-200 p-4 px-6 text-center text-xs text-gray-400">
                     &copy; Clarice Oliveira - {{ date('Y') }} - Projeto CRUD Programação Orientada a Objetos
                 </footer>
             </div>
