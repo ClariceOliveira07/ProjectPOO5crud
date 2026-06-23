@@ -1,5 +1,4 @@
 <x-app-layout src="https://cdn.tailwindcss.com">
-
     <div class="flex-1 p-6">
         <div class="flex justify-between items-center mb-6">
             <div>
@@ -51,5 +50,4 @@
         </div> 
     </div>
 </div>
-
 </x-app-layout>

@@ -1,7 +1,5 @@
 <x-app-layout src="https://cdn.tailwindcss.com">
-
     <div class="flex-1 p-6">
-        
         <div class="flex justify-between items-center mb-6">
             <div>
                 <h1 class="text-xl font-bold text-gray-800">Clientes</h1>
@@ -11,17 +9,13 @@
                 Voltar
             </a>
         </div>
-
         <div class="flex justify-center mt-8">
-            
             <div class="w-full max-w-xl bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm">
                 <div class="bg-[#fef08a] p-4 border-b border-gray-200">
                     <h2 class="font-bold text-yellow-900">Novo Cliente</h2>
                 </div>
-
                 <form action="{{ route('clients.store') }}" method="POST" class="p-4 flex flex-col gap-4">
                     @csrf
-
                     <div>
                         <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome:</label>
                         <input type="text" name="nome" id="nome" value="{{ old('nome') }}" 
@@ -30,7 +24,6 @@
                             <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-
                     <div>
                         <label for="telefone" class="block text-sm font-medium text-gray-700 mb-1">Telefone:</label>
                         <input type="text" name="telefone" id="telefone" value="{{ old('telefone') }}" 
@@ -39,7 +32,6 @@
                             <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail:</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}" 
@@ -48,7 +40,6 @@
                             <p class="text-red-600 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-
                     <div class="flex justify-end gap-3 pt-2 border-t border-gray-100 mt-2">
                         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-md text-sm transition-colors">
                             Salvar Cliente
@@ -56,8 +47,7 @@
                     </div>
                 </form>
             </div>
-
-        </div> </div>
+        </div> 
+    </div>
 </div>
-
 </x-app-layout>
