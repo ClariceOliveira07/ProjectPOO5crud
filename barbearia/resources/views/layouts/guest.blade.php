@@ -18,12 +18,9 @@
             
             <div class="mb-4 flex flex-col items-center gap-1">
                 <a href="/" class="relative w-14 h-14 flex items-center justify-center">
-                    <svg class="w-14 h-14 text-amber-500 drop-shadow-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <svg class="w-14 h-14 text-black drop-shadow-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M2 19h20v2H2v-2zm1-2h18L19 7l-4 4-3-6-3 6-4-4-3 10z"/>
                     </svg>
-                    <span class="absolute top-[18%] left-[47%] w-1.5 h-1.5 bg-red-600 rounded-full border border-amber-400 shadow-sm animate-pulse"></span>
-                    <span class="absolute top-[32%] left-[17%] w-1 h-1 bg-red-600 rounded-full border border-amber-400 shadow-sm"></span>
-                    <span class="absolute top-[32%] right-[17%] w-1 h-1 bg-red-600 rounded-full border border-amber-400 shadow-sm"></span>
                 </a>
                 <div class="font-bold text-gray-800 tracking-wide text-xs uppercase mt-1">
                     Barbearia King

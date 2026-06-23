@@ -1,6 +1,6 @@
 <x-app-layout src="https://cdn.tailwindcss.com">
 
-    <div class="flex-1 p-6>
+    <div class="flex-1 p-6">
         <div class="flex justify-between items-center mb-6">
             <div>
                 <h1 class="text-xl font-bold text-gray-800">Serviços</h1>
@@ -66,6 +66,5 @@
             </div>
         </div>
     </div>
-</div>
 
 </x-app-layout>
