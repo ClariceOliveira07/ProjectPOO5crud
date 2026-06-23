@@ -1,0 +1,59 @@
+services:
+
+  # ─── Servidor Web ───────────────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: barbearia_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - barbearia-network
+
+  # ─── Aplicação Laravel (PHP 8.3) ────────────────────────────────
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: barbearia_php
+    volumes:
+      - .:/var/www
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - barbearia-network
+    environment:
+      - APP_ENV=local
+
+  # ─── Banco de Dados MySQL ────────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: barbearia_mysql
+    environment:
+      MYSQL_DATABASE: project_poo5crud
+      MYSQL_USER: barbearia
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - barbearia-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+      interval: 5s
+
+volumes:
+  mysql-data:
+
+networks:
+  barbearia-network:
+    driver: bridge
