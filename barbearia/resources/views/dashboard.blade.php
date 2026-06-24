@@ -43,7 +43,7 @@
             </div>
             <div class="p-5 flex items-baseline gap-2">
                 <span class="text-3xl font-extrabold text-gray-800 tracking-tight">{{ $totalServicos }}</span>
-                <span class="text-xs text-gray-400 font-medium">opções ativas</span>
+                <span class="text-xs text-gray-400 font-medium">opções no total</span>
             </div>
         </div>
 
