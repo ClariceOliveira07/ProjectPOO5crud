@@ -79,7 +79,7 @@
                     @empty
                         <tr>
                             <td colspan="5" class="text-center p-6 text-gray-400">
-                                Nenhum agendamento para hoje.
+                                Nenhum agendamento.
                             </td>
                         </tr>
                     @endforelse
