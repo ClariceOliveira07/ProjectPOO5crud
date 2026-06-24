@@ -54,6 +54,6 @@ Abra no navegador: http://localhost:8080
 
 | Container | Função | Porta |
 |---|---|---|
-| barbearia_nginx | Servidor web | 8080 |
+| barbearia_web | Servidor web | 8080 |
 | barbearia_php | Laravel (PHP 8.3) | interno |
 | barbearia_mysql | Banco de dados | 3306 |
