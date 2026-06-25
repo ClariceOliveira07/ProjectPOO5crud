@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = ['nome', 'preco', 'duracao_minutos', 'ativo'];
-    protected $casts = ['preço'=>'decimal:2', 'ativo'=>'boolean'];
+    protected $casts = ['preco'=>'decimal:2', 'ativo'=>'boolean'];
     public function scopeActive($query){
         return $query->where('ativo', true);
     }
